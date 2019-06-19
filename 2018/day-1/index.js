@@ -5,7 +5,7 @@ const axios = require( 'axios' );
 require('dotenv').config();
 
 ( async () => {
-	// const inputFile = './input/1.txt';
+	// const inputFile = './input/1.2.txt';
 	// const input = fs.readFileSync( inputFile, 'utf8' );
 
 	const inputUrl = 'https://adventofcode.com/2018/day/1/input';
