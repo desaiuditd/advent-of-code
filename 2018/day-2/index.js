@@ -1,41 +1,16 @@
-const fs = require( 'fs' );
 const _ = require( 'lodash' );
-const axios = require( 'axios' );
+
+const { getInput } = require( '../../utils' );
 
 require('dotenv').config();
 
-const getInput = async ( isLocal = false ) => {
-	if ( isLocal ) {
-		const inputFile = `${__dirname}/input/2.2.txt`;
-		return fs.readFileSync( inputFile, 'utf8' );
-	}
-
-	const inputUrl = 'https://adventofcode.com/2018/day/2/input';
-	const adventSession = process.env.ADVENT_SESSION;
-	let input = '';
-
-	try {
-		const response = await axios.get(
-			inputUrl,
-			{
-				headers: {
-					Cookie: `session=${adventSession};`
-				}
-			}
-		);
-
-		if ( response && 200 === response.status ) {
-			input = response.data;
-		}
-	} catch( e ) {
-		console.log( e );
-	}
-
-	return input;
-};
-
 ( async () => {
-	const input = await getInput();
+	const input = await getInput( {
+		// isLocal: true,
+		// localPath: `${__dirname}/input/2.2.txt`
+		inputUrl: 'https://adventofcode.com/2018/day/2/input'
+	} );
+
 	const ids = _.filter(
 		// Extract out individual frequencies.
 		input.split( '\n' ),
