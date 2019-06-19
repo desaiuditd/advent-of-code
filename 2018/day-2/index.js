@@ -4,9 +4,11 @@ const axios = require( 'axios' );
 
 require('dotenv').config();
 
-( async () => {
-	// const inputFile = './input/2.2.txt';
-	// const input = fs.readFileSync( inputFile, 'utf8' );
+const getInput = async ( isLocal = false ) => {
+	if ( isLocal ) {
+		const inputFile = `${__dirname}/input/2.2.txt`;
+		return fs.readFileSync( inputFile, 'utf8' );
+	}
 
 	const inputUrl = 'https://adventofcode.com/2018/day/2/input';
 	const adventSession = process.env.ADVENT_SESSION;
@@ -22,17 +24,18 @@ require('dotenv').config();
 			}
 		);
 
-		if ( ! response || 200 !== response.status ) {
-			console.log( 'no input found.' );
-			return;
+		if ( response && 200 === response.status ) {
+			input = response.data;
 		}
-
-		input = response.data;
 	} catch( e ) {
 		console.log( e );
-		return;
 	}
 
+	return input;
+};
+
+( async () => {
+	const input = await getInput();
 	const ids = _.filter(
 		// Extract out individual frequencies.
 		input.split( '\n' ),
