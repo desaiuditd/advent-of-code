@@ -1,0 +1,7 @@
+aabcdd
+ababab
+abbcde
+abcccd
+abcdee
+abcdef
+bababc
