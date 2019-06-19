@@ -1,13 +1,20 @@
 {
-  "name": "advent-of-code",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:desaiuditd/advent-of-code.git",
-  "author": "Udit Desai <desaiuditd@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "dotenv": "^8.0.0",
-    "lodash": "^4.17.11"
-  }
+	"name": "advent-of-code",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:desaiuditd/advent-of-code.git",
+	"author": "Udit Desai <desaiuditd@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"chalk": "^2.4.2",
+		"dotenv": "^8.0.0",
+		"figlet": "^1.2.3",
+		"inquirer": "^6.3.1",
+		"lodash": "^4.17.11",
+		"minimist": "^1.2.0"
+	}
 }
