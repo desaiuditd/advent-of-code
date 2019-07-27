@@ -2,8 +2,6 @@ const _ = require( 'lodash' );
 
 const { getInput } = require( '../../utils' );
 
-require('dotenv').config();
-
 ( async () => {
 	const input = await getInput( {
 		// isLocal: true,
